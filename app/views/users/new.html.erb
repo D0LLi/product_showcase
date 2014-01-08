@@ -1,2 +1,16 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<% provide(:title, 'Sign up') %>
+<h1>Sign up to Vote on New Product Showcase</h1>
+  <%= form_for(@user) do |f| %>
+    <div class="form-group">
+      <%= f.label :badge, "Enter Badge Number" %>
+      <%= f.number_field :badge, :class=>'form-control' %>
+    </div><div class="form-group">
+      <%= f.label :name, "Name (optional)" %>
+      <%= f.text_field :name, :class=>'form-control'%>
+    </div><div class="form-group">
+      <%= f.submit "Create my Ballot", class: "btn btn-large btn-primary" %>
+    </div>
+  <% end %>
+<div class="form-group">
+  <p>Returning user? <%= link_to "Sign In", signin_path %></p>
+</div>

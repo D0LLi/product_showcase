@@ -1,6 +1,11 @@
 ProductShowcase::Application.routes.draw do
-  get "ballot/new"
-  get "users/new"
+  resources :users
+  resources :ballots
+  resources :sessions,      only: [:new, :create, :destroy]
+  root :to => "users#new"
+  match '/start',     to: 'users#new',      via: 'get'
+  match '/ballots',   to: 'ballot#new',     via: 'get'
+  match '/signin',    to: 'sessions#new',   via: 'get'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
