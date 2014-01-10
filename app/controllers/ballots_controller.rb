@@ -9,7 +9,7 @@ class BallotsController < ApplicationController
     @categories.each do |cat| 
       ary = Array.new
       for i in "001".."099"
-        ary.push(t.concat(i))
+        ary.push(t+i)
       end
       @hsh[cat] = ary
       t = t.next
@@ -20,6 +20,9 @@ class BallotsController < ApplicationController
   end
 
   def create
+  end
+
+  def update
   end
 
 end

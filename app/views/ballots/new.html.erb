@@ -5,9 +5,15 @@
 </h1>
 
 <%= form_for(@ballot) do |f| %>
+  <div class="form-group">
+  <dl class="dl-horizontal"> 
   <%  @ballot.votes.each do |vt| %>
       <%= fields_for vt do |v| %>
-        <%= v.select :category, ["1", "2", "3"] %>
-      <% end %>
+        <dt><%= label_tag(vt.category) %></dt>
+        <dd>
+        <%= v.select(:product, @hsh[vt.category], :include_blank => true ) %>
+        </dd>   
+     <% end %>
   <% end %>
+<%= f.submit %>
 <% end %>
