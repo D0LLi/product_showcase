@@ -1,0 +1,13 @@
+<% provide(:title, 'New Ballot') %>
+<h1>
+    <%= current_user.badge %>
+    <%= current_user.name %>
+</h1>
+
+<%= form_for(@ballot) do |f| %>
+  <%  @ballot.votes.each do |vt| %>
+      <%= fields_for vt do |v| %>
+        <%= v.select :category, ["1", "2", "3"] %>
+      <% end %>
+  <% end %>
+<% end %>

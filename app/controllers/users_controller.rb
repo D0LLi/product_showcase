@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       sign_in @user
-      redirect_to(ballots_path(@user), :notice => 'New Ballot')
+      redirect_to(new_ballot_path, :notice => 'New Ballot')
     else
       flash.now[:alert] = @user.errors.full_messages[0]
       render :action => :new
