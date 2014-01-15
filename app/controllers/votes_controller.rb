@@ -1,7 +1,8 @@
 class VotesController < ApplicationController
 
-  def new
-    vote = Vote.new
+  def create
+    @vote = current_user.ballot.votes.build(:vote)
+    @vote.save
   end
 
 end

@@ -2,6 +2,7 @@ ProductShowcase::Application.routes.draw do
   resources :users
   resources :ballots
   resources :sessions,      only: [:new, :create, :destroy]
+  resources :votes,         only: [:create]
   root "users#new"
   match '/start',     to: 'users#new',      via: 'get'
   match '/ballots',   to: 'ballot#new',     via: 'get'

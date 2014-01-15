@@ -1,4 +1,4 @@
-<% provide(:title, 'New Ballot') %>
+<% provide(:title, 'Ballot') %>
 <h1>
     <%= current_user.badge %>
     <%= current_user.name %>
@@ -7,7 +7,7 @@
 <%= form_for(@ballot) do |f| %>
   <div class="form-group">
   <dl class="dl-horizontal"> 
-  <%  @ballot.votes.each_with_index do |vt| %>
+  <%  @ballot.votes.each do |vt| %>
       <%= fields_for vt do |v| %>
         <dt><%= label_tag(vt.category) %></dt>
         <dd>
@@ -15,5 +15,5 @@
         </dd>   
      <% end %>
   <% end %>
-<%= f.submit("Create Ballot") %>
+<%= f.submit %>
 <% end %>
